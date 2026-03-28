@@ -24,10 +24,10 @@ if [ ${BUILD_STOCK} = true ] ; then
     fi
     if [ ! -f ${DIRECTORY}/build_st/${RA_DIST_FILE} ] ; then
         echo "    Downloading RA distribution"
-        RA_DIST_URL_ST=https://buildbot.libretro.com/nightly/dingux/mips32/${RA_DIST_FILE}
-        wget -q -P ${DIRECTORY}/build_st ${RA_DIST_URL_ST}
+        RA_DIST_URL_ST=https://buildbot.libretro.com/stable/${VERSION}/dingux/mips32/RetroArch.7z
+        wget -q -O ${DIRECTORY}/build_st/${RA_DIST_FILE} ${RA_DIST_URL_ST}
         status=$?
-        [ ! ${status} -eq 0 ] && echo "@@ ERROR: Problem downloading RA distribution. Surely the version configured in '${DIRECTORY}/v' is more than two weeks old." && exit ${status}
+        [ ! ${status} -eq 0 ] && echo "@@ ERROR: Problem downloading RA distribution for version '${VERSION}'." && exit ${status}
     fi
 
     echo "    Unpacking RA distribution"
@@ -152,10 +152,10 @@ if [ ${BUILD_ODBETA} = true ] ; then
     fi
     if [ ! -f ${DIRECTORY}/build_odb/${RA_DIST_FILE} ] ; then
         echo "    Downloading RA distribution"
-        RA_DIST_URL_ST=https://buildbot.libretro.com/nightly/dingux/mips32-odbeta/${RA_DIST_FILE}
-        wget -q -P ${DIRECTORY}/build_odb ${RA_DIST_URL_ST}
+        RA_DIST_URL_ST=https://buildbot.libretro.com/stable/${VERSION}/dingux/mips32-odbeta/RetroArch.7z
+        wget -q -O ${DIRECTORY}/build_odb/${RA_DIST_FILE} ${RA_DIST_URL_ST}
         status=$?
-        [ ! ${status} -eq 0 ] && echo "@@ ERROR: Problem downloading RA distribution. Surely the version configured in '${DIRECTORY}/v' is more than two weeks old." && exit ${status}
+        [ ! ${status} -eq 0 ] && echo "@@ ERROR: Problem downloading RA distribution for version '${VERSION}'." && exit ${status}
     fi
 
     echo "    Unpacking RA distribution"
